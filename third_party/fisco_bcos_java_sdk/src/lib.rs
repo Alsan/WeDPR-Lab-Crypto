@@ -14,6 +14,7 @@ use wedpr_l_utils::traits::Coder;
 mod tools;
 
 #[derive(PartialEq, Default, Debug, Clone)]
+#[allow(non_camel_case_types)]
 pub struct vrf_proof {
     pub gamma: String,
     pub c: String,
@@ -160,7 +161,7 @@ mod tests {
 
         let encode = proof.encode();
         println!("encode = {}", encode);
-        let decode = vrf_proof::decode(&encode).unwrap();
+        // let decode = vrf_proof::decode(&encode).unwrap();
         let result = curve25519_vrf_verify(&y, alpha, &proof);
         println!("result = {}", result);
     }
